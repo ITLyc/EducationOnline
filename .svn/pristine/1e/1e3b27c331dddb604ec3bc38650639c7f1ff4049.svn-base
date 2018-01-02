@@ -1,0 +1,75 @@
+<resources>
+
+    <style name="head_icon">
+        <item name="android:layout_width">@dimen/head_icon_width</item>
+        <item name="android:layout_height">@dimen/head_icon_height</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:paddingTop">@dimen/x10</item>
+        <item name="android:paddingBottom">@dimen/x10</item>
+        <item name="android:paddingLeft">@dimen/x5</item>
+        <item name="android:paddingRight">@dimen/x5</item>
+    </style>
+
+    <style name="terminal_set_item_rel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+
+    <style name="terminal_set_item_lin">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="terminal_set_item_txt">
+        <item name="android:layout_width">@dimen/terminal_set_item_txt_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#FF323232</item>
+        <item name="android:textSize">@dimen/terminal_set_item_txt_size</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="terminal_set_item_edit">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/x60</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">#FF323232</item>
+        <item name="android:textSize">@dimen/x24</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:background">@drawable/common_edit_bg</item>
+        <item name="android:padding">@dimen/x5</item>
+    </style>
+
+    <style name="terminal_set_item_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:background">#FFF2F2F2</item>
+    </style>
+
+    <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <!-- top_view线的样式 -->
+    <style name="top_line_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/x1</item>
+        <item name="android:background">@color/gray</item>
+    </style>
+
+    <!--等待加载框样式-->
+    <style name="progress_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+</resources>

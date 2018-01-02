@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="head_height">@dimen/x80</dimen>
+    <dimen name="head_icon_width">@dimen/x48</dimen>
+    <dimen name="head_icon_height">@dimen/x72</dimen>
+    <dimen name="head_padding">@dimen/x10</dimen>
+    <dimen name="head_title_text_size">@dimen/x28</dimen>
+    <dimen name="terminal_set_item_txt_width">@dimen/x80</dimen>
+    <dimen name="terminal_set_item_txt_size">@dimen/x24</dimen>
+    <dimen name="register_padding">@dimen/x10</dimen>
+    <dimen name="fab_margin">@dimen/x16</dimen>
+</resources>

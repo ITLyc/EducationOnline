@@ -1,0 +1,101 @@
+package com.teach.android.educationonline.ui.activity;
+
+import android.content.Intent;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.EditText;
+
+import com.teach.android.educationonline.R;
+import com.teach.android.educationonline.database.LoginRespone;
+import com.teach.android.educationonline.http.ViseHttp;
+import com.teach.android.educationonline.http.callback.ACallback;
+import com.teach.android.educationonline.log.MyLog;
+import com.teach.android.educationonline.ui.base.BaseActivity;
+import com.teach.android.educationonline.util.ToastUtil;
+
+import butterknife.BindView;
+
+/**
+ * @author 作者:兰兰酱
+ *         Created by Administrator on 2017/12/6 0006.
+ *         com.teach.android.educationonline.ui.activity
+ *         EducationOnline
+ */
+
+public class RegisterActivity extends BaseActivity {
+
+    @BindView(R.id.edit_reg_userword)
+    EditText userword;
+    @BindView(R.id.edit_reg_password)
+    EditText password;
+
+    private String user = "", word = "";
+
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_register;
+    }
+
+    @Override
+    protected void initView() {
+        setTitle("注册");//设置title
+//        setBackGone();//隐藏返回控件
+    }
+
+    @Override
+    protected void processClick(View v) {
+
+    }
+
+    public void request_post(View v) {
+        showLoading(getContext());
+        if (TextUtils.isEmpty(userword.getText()) || TextUtils.isEmpty(password.getText())) {
+            ToastUtil.showShort("用户名或密码为空");
+            dismissLoading(getContext());
+        } else {
+            String checkmesssage =checkUsers(userword.getText().toString(), password.getText().toString());
+            if (checkmesssage.equals("success")) {
+                ViseHttp.GET(getString(R.string.register))
+                        .tag(getString(R.string.register))
+                        .addParam("user_model", userword.getText().toString())
+                        .addParam("user_pwd", password.getText().toString())
+                        .request(new ACallback<LoginRespone>() {
+                            @Override
+                            public void onSuccess(LoginRespone success) {
+                                if (success == null) {
+                                    return;
+                                }
+                                if (success.isSucess() || success.getStatus() == 1006) {
+                                    if (success.getStatus() == 1006) {
+//                                        LiveUserModel info = success.getData();
+//                                        saveUserInfoOnDisk(info, success.getCookie());
+//                                    Constants.getUserInfo().getUser_id() //获取用户Id
+//                                Constants.logout();//退出登录时直接调用这个话
+                                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                    }
+                                } else {
+                                    toast(success.getMsg());
+                                }
+                                dismissLoading(getContext());
+                            }
+
+                            @Override
+                            public void onFail(int errCode, String errMsg) {
+                                MyLog.i("request errorCode:" + errCode + ",errorMsg:" + errMsg);
+                                ToastUtil.showShort(errMsg);
+                                dismissLoading(getContext());
+                            }
+                        });
+            } else {
+                MyLog.i("username or password not check :" + checkmesssage);
+                ToastUtil.showShort(checkmesssage);
+                dismissLoading(getContext());
+            }
+
+        }
+
+    }
+
+
+}

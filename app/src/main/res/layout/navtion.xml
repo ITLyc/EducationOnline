@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <!--
+        共享头部文件:
+            默认显示返回图标和Title,后续如果需要头部添加文字或图标,
+            可自行定义,自定义文字或图标隐藏,需在BaseActivity中自定义
+            public方法控制显示和操作.返回控件不用在管它
+    -->
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/head_height"
+        android:paddingLeft="@dimen/head_padding"
+        android:paddingRight="@dimen/head_padding"
+        android:layout_marginTop="@dimen/x30">
+        <ImageView
+            android:id="@+id/nv_back"
+            style="@style/head_icon"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/bg_gray_light"
+            android:src="@drawable/icon_back" />
+
+        <TextView
+            android:id="@+id/nv_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="测试"
+            android:textColor="#FF323232"
+            android:textSize="@dimen/head_title_text_size" />
+    </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <View
+        style="@style/top_line_style"
+        android:visibility="visible" />
+</LinearLayout>

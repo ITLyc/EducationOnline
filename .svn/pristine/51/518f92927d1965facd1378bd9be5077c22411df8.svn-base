@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--注册接口-->
+    <string name="register">LiveUser/register</string>
+    <!--登陆接口-->
+    <string name="login">LiveUser/login</string>
+    <!--注销接口-->
+    <string name="logout">LiveUser/logout</string>
+</resources>

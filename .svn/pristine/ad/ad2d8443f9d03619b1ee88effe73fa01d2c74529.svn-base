@@ -1,0 +1,43 @@
+package com.teach.android.educationonline.database;
+
+import com.teach.android.educationonline.ui.entity.LiveUserModel;
+
+/**
+ * File description.
+ *
+ * @author 作者:lyc
+ * @date 2017/12/14 0014
+ */
+
+
+public class BaseRespone {
+    public int status;
+    public String msg;
+    LiveUserModel data;
+    public int getStatus() {
+        return status;
+    }
+
+    public boolean isSucess() {
+        return 1 == status;
+    }
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public LiveUserModel getData() {
+        return data;
+    }
+
+    public void setData(LiveUserModel data) {
+        this.data = data;
+    }
+}
